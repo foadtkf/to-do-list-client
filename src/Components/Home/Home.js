@@ -3,7 +3,7 @@ import List from '../List/List';
 
 const Home = () => {
     return (
-        <div>
+        <div  style={{minHeight:"100vh"}}>
             <p>This is home</p>
             <List></List>
         </div>

@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Add from './Components/Add/Add';
+import Footer from './Components/Footer/Footer';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Navbar from './Components/Navbar/Navbar';
@@ -21,6 +22,7 @@ function App() {
 <Route path='/add' element={<Add></Add>}></Route>
       <Route path='/signup' element={<Signup></Signup>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
