@@ -2,8 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
+import { useNavigate } from 'react-router-dom';
 
 const List = () => {
+  const navigate = useNavigate();
+
+
+  const navigateToUpdate = id =>{
+      navigate(`/update/${id}`);
+  }
   const [tasks,setTasks] = useState([])
   const [user] = useAuthState(auth);
   useEffect( ()=>{
@@ -50,7 +57,7 @@ const handleDelete=id=>{
         <div class="btn-group">
           <button class="btn btn-active">Completed</button>
           {user&&<>
-            <button class="btn">Update</button>
+            <button class="btn" onClick={() => navigateToUpdate(task._id)} >Update</button>
           <button class="btn"  onClick={()=>handleDelete(task._id)} >Delete</button></>}
         </div>
       </td>

@@ -9,6 +9,7 @@ import Register from './Components/Register/Register';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 import Signup from './Components/Signup/Signup';
 import Update from './Components/Update/Update';
+import UpdateProduct from './Components/UpdateProduct/UpdateProduct';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
 <Route path='/register' element={<Register></Register>}></Route>
 <Route path='/update' element={<RequireAuth><Update></Update></RequireAuth>}></Route>
 <Route path='/add' element={<AddService/>}></Route>
+<Route path='update/:id' element={<RequireAuth>
+  <UpdateProduct></UpdateProduct>
+</RequireAuth>}/>
       <Route path='/signup' element={<Signup></Signup>}></Route>
       </Routes>
       <Footer></Footer>
