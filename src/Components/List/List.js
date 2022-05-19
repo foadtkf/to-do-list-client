@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Task from './Task';
 
 const List = () => {
+  const [tasks,setTasks] = useState([])
+  useEffect( ()=>{
+    fetch('task.json')
+    .then(res => res.json())
+    .then(data => setTasks(data));
+}, [])
     return (
         <div class="overflow-x-auto">
         <table class="table w-full">
@@ -15,20 +22,9 @@ const List = () => {
             </tr>
           </thead>
           <tbody>
-            <tr class="hover">
-              <th>1</th>
-              <td>Study</td>
-              <td>18th May,2022</td>
-              <td>20th May,2022</td>
-              <td>pending</td>
-              <td>
-              <div class="btn-group">
-  <button class="btn btn-active">Completed</button>
-  <button class="btn">Update</button>
-  <button class="btn">Delete</button>
-</div>
-              </td>
-            </tr>
+            {
+              tasks.map(task=><Task key={task._id} task={task}></Task>)
+            }
             
           </tbody>
         </table>

@@ -26,10 +26,6 @@ const Login = () => {
 
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
-    if (loading || sending) {
-        return <Loading></Loading>
-    }
-
     if (user) {
         localStorage.setItem('email',user._tokenResponse.email)
         console.log('>>>>>>',user._tokenResponse.email)
@@ -37,7 +33,7 @@ const Login = () => {
     }
 
     if (error) {
-        errorElement = <p className='text-danger'>Error: {error?.message}</p>
+        errorElement = <p className='text-red-500'>Error: {error?.message}</p>
     }
 
     const handleSubmit = event => {

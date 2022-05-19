@@ -55,7 +55,7 @@ const Signup = () => {
 
                 <input type="password" name="password"  placeholder='Password' required />
                 <input onClick={() => setAgree(!agree)} type="checkbox" name="terms" id="terms" />
-                <label className={`ps-2 ${agree ? '' : 'text-danger'}`} htmlFor="terms">Accept all terms and conditions</label>
+                <label className={`ps-2 ${agree ? '' : 'text-red-500'}`} htmlFor="terms">Accept all terms and conditions</label>
                 <input
                     disabled={!agree}
                     className='w-50 mx-auto btn btn-primary mt-2'
