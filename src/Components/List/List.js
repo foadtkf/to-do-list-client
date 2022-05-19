@@ -14,14 +14,14 @@ const List = () => {
   const [tasks,setTasks] = useState([])
   const [user] = useAuthState(auth);
   useEffect( ()=>{
-    fetch('http://localhost:5000/tasks')
+    fetch('https://herokutodolistdaddy.herokuapp.com/tasks')
     .then(res => res.json())
     .then(data => setTasks(data));
 }, [])
 const handleDelete=id=>{
   const proceed =window.confirm('R you sure?')
   if(proceed){
-      fetch(`http://localhost:5000/tasks/${id}`,{
+      fetch(`https://herokutodolistdaddy.herokuapp.com/tasks/${id}`,{
           method:'DELETE'})
           .then(res=>res.json())
           .then(data=>{

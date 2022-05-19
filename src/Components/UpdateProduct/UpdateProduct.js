@@ -8,7 +8,7 @@ const UpdateProduct = () => {
     const [task ,setTask]=useState({})
     const [name,setName] =useState(0)
     useEffect(()=>{
-fetch(`http://localhost:5000/tasks/${id}`)
+fetch(`https://herokutodolistdaddy.herokuapp.com/tasks/${id}`)
 .then(res=>res.json())
 .then(data=>{setTask(data)
             setName(data.quantity)})
@@ -18,7 +18,7 @@ fetch(`http://localhost:5000/tasks/${id}`)
         event.preventDefault()
         const taskName=event.target.quantity.value
         const updateproduct={task: taskName}
-        fetch(`http://localhost:5000/tasks/${id}`,{
+        fetch(`https://herokutodolistdaddy.herokuapp.com/tasks/${id}`,{
             method:'PUT',
             headers:{
                 'content-type':'application/json'

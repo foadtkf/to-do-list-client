@@ -10,7 +10,7 @@ const AddService = () => {
   } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-    const url = `http://localhost:5000/tasks`;
+    const url = `https://herokutodolistdaddy.herokuapp.com/tasks`;
     fetch(url, {
       method: "POST",
       headers: {
