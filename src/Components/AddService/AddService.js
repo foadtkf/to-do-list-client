@@ -28,7 +28,7 @@ const AddService = () => {
     <div className="w-50 mx-auto my-5 border rounded shadow-lg p-5"  style={{minHeight:'100vh'}}>
       <h2 className="text-4xl">Add a new task: </h2><br/>
       <form className="d-flex flex-column rounded" onSubmit={handleSubmit(onSubmit)}>
-        <input className="input input-bordered" {...register("name")} placeholder="Name" required/><br/>
+        <input className="input input-bordered" {...register("task")} placeholder="Name" required/><br/>
         <input className="input input-bordered" {...register("ending")} placeholder="ending" required/><br/>
         <input className="input input-bordered" {...register("status")} placeholder="status" required/><br/>
         <input className="input input-bordered" {...register("starting")} placeholder="starting" required/><br/>
