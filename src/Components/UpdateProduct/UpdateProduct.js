@@ -6,6 +6,7 @@ import { toast, ToastContainer } from 'react-toastify';
 const UpdateProduct = () => {
     const {id} =useParams();
     const [task ,setTask]=useState({})
+    console.log(task)
     const [name,setName] =useState(0)
     useEffect(()=>{
 fetch(`https://herokutodolistdaddy.herokuapp.com/tasks/${id}`)

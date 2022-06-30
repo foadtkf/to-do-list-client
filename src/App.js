@@ -4,8 +4,11 @@ import AddService from "./Components/AddService/AddService";
 import { MyApp } from "./Components/Calendar/Calendar";
 import Footer from "./Components/Footer/Footer";
 import Home from "./Components/Home/Home";
+import OnlyComps from "./Components/List/OnlyComps";
+import OnlyTodo from "./Components/List/OnlyTodo";
 import Login from "./Components/Login/Login";
 import Navbar from "./Components/Navbar/Navbar";
+import NotFound from "./Components/Notfound/Notfound";
 import Register from "./Components/Register/Register";
 import RequireAuth from "./Components/RequireAuth/RequireAuth";
 import Signup from "./Components/Signup/Signup";
@@ -39,6 +42,9 @@ function App() {
         />
         <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route path="/calendar" element={<MyApp/>}/>
+        <Route path="/completed" element={<OnlyComps/>}/>
+        <Route path="/todo" element={<OnlyTodo/>}/>
+        <Route path="*" element={<NotFound/>}/>
       </Routes>
       <Footer></Footer>
     </div>

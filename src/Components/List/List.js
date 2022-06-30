@@ -17,7 +17,7 @@ const List = () => {
     fetch('https://herokutodolistdaddy.herokuapp.com/tasks')
     .then(res => res.json())
     .then(data => setTasks(data));
-}, [])
+}, [tasks])
 const handleDelete=id=>{
   const proceed =window.confirm('R you sure?')
   if(proceed){
@@ -31,6 +31,19 @@ const handleDelete=id=>{
           })
           toast.error('Deleted Successfully!')
   }
+}
+const handleUpdateproduct=(id) =>{
+  const updateproduct={status: "completed"}
+  fetch(`https://herokutodolistdaddy.herokuapp.com/tasksstat/${id}`,{
+      method:'PUT',
+      headers:{
+          'content-type':'application/json'
+      },
+      body: JSON.stringify(updateproduct)
+  })
+  .then(res=>res.json())
+  .then(data=>{console.log('success',data)
+  toast.success('status updated successfully')})
 }
     return (
         <div class="overflow-x-auto min-h-screen">
@@ -56,7 +69,7 @@ const handleDelete=id=>{
       <td>
         <div class="btn-group">
           {
-        task.status!=="completed"&& <button class="btn btn-active">Completed</button>
+        task.status!=="completed"&&user&& <button class="btn btn-active" onClick={()=>handleUpdateproduct(task._id)}>Completed</button>
       }
           {user&&<>
             <button class="btn" onClick={() => navigateToUpdate(task._id)} >Update</button>

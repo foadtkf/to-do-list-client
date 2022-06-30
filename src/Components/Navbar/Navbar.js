@@ -29,7 +29,7 @@ const Navbar = () => {
             <Link to="/calendar">Calendar</Link>
           </li>
           <li>
-            <Link to="/completed">Completed</Link>
+            <Link to="/completed">Completed Tasks</Link>
           </li>
           <li>
             <Link to="/todo">To-do</Link>
@@ -68,7 +68,7 @@ const Navbar = () => {
             <Link to="/calendar">Calendar</Link>
           </li>
           <li>
-            <Link to="/completed">Completed</Link>
+            <Link to="/completed">Completed Tasks</Link>
           </li>
           <li>
             <Link to="/todo">To-do</Link>
