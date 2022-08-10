@@ -28,12 +28,7 @@ const Navbar = () => {
           <li>
             <Link to="/calendar">Calendar</Link>
           </li>
-          <li>
-            <Link to="/completed">Completed Tasks</Link>
-          </li>
-          <li>
-            <Link to="/todo">To-do</Link>
-          </li>
+          
           {user ? (
             <button
               className="btn btn-link text-decoration-none"
@@ -52,6 +47,12 @@ const Navbar = () => {
               <li>
                 <Link to="/add">Add a task</Link>
               </li>
+              <li>
+            <Link to="/completed">Completed Tasks</Link>
+          </li>
+          <li>
+            <Link to="/todo">To-do</Link>
+          </li>
             </>
           )}
        
@@ -67,12 +68,7 @@ const Navbar = () => {
           <li>
             <Link to="/calendar">Calendar</Link>
           </li>
-          <li>
-            <Link to="/completed">Completed Tasks</Link>
-          </li>
-          <li>
-            <Link to="/todo">To-do</Link>
-          </li>
+          
           {user ? (
             <button
               className="btn btn-link text-decoration-none"
@@ -91,6 +87,12 @@ const Navbar = () => {
               <li>
                 <Link to="/add">Add a task</Link>
               </li>
+              <li>
+            <Link to="/completed">Completed Tasks</Link>
+          </li>
+          <li>
+            <Link to="/todo">To-do</Link>
+          </li>
             </>
           )}
         

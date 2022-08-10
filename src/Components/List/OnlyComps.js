@@ -48,7 +48,7 @@ const OnlyComps = () => {
         <tbody>
           {tasks.map((task, index) => (
             <>
-              {task.status === "completed" && (
+              {task.status === "completed" && (task.email===user.email &&
                 <tr class="hover">
                   <th>{index + 1}</th>
                   <td>{task.task}</td>
