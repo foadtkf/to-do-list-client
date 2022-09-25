@@ -13,14 +13,14 @@ const OnlyTodo = () => {
   const [tasks, setTasks] = useState([]);
   const [user] = useAuthState(auth);
   useEffect(() => {
-    fetch("https://herokutodolistdaddy.herokuapp.com/tasks")
+    fetch("https://to-do-server.onrender.com//tasks")
       .then((res) => res.json())
       .then((data) => setTasks(data));
   }, [tasks]);
   const handleDelete = (id) => {
     const proceed = window.confirm("R you sure?");
     if (proceed) {
-      fetch(`https://herokutodolistdaddy.herokuapp.com/tasks/${id}`, {
+      fetch(`https://to-do-server.onrender.com//tasks/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -34,7 +34,7 @@ const OnlyTodo = () => {
   };
   const handleUpdateproduct = (id) => {
     const updateproduct = { status: "completed" };
-    fetch(`https://herokutodolistdaddy.herokuapp.com/tasksstat/${id}`, {
+    fetch(`https://to-do-server.onrender.com//tasksstat/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -63,8 +63,7 @@ const OnlyTodo = () => {
         <tbody>
           {tasks.map((task, index) => (
             <>
-              {task.status !== "completed" && task?.email=== user.email && (
-                
+              {task.status !== "completed" && task?.email === user.email && (
                 <tr class="hover">
                   <th>{index + 1}</th>
                   <td>{task.task}</td>
@@ -74,14 +73,14 @@ const OnlyTodo = () => {
                   <td>
                     <div class="btn-group">
                       {" "}
-                      
                       {user && (
-                        <><button
-                        class="btn btn-active"
-                        onClick={() => handleUpdateproduct(task._id)}
-                      >
-                        Completed
-                      </button>
+                        <>
+                          <button
+                            class="btn btn-active"
+                            onClick={() => handleUpdateproduct(task._id)}
+                          >
+                            Completed
+                          </button>
                           <button
                             class="btn"
                             onClick={() => navigateToUpdate(task._id)}

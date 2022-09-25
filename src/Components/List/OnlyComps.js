@@ -13,14 +13,14 @@ const OnlyComps = () => {
   const [tasks, setTasks] = useState([]);
   const [user] = useAuthState(auth);
   useEffect(() => {
-    fetch("https://herokutodolistdaddy.herokuapp.com/tasks")
+    fetch("https://to-do-server.onrender.com//tasks")
       .then((res) => res.json())
       .then((data) => setTasks(data));
   }, []);
   const handleDelete = (id) => {
     const proceed = window.confirm("R you sure?");
     if (proceed) {
-      fetch(`https://herokutodolistdaddy.herokuapp.com/tasks/${id}`, {
+      fetch(`https://to-do-server.onrender.com//tasks/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -48,7 +48,7 @@ const OnlyComps = () => {
         <tbody>
           {tasks.map((task, index) => (
             <>
-              {task.status === "completed" && (task.email===user.email &&
+              {task.status === "completed" && task.email === user.email && (
                 <tr class="hover">
                   <th>{index + 1}</th>
                   <td>{task.task}</td>

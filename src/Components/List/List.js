@@ -13,14 +13,14 @@ const List = () => {
   const [tasks, setTasks] = useState([]);
   const [user] = useAuthState(auth);
   useEffect(() => {
-    fetch("https://herokutodolistdaddy.herokuapp.com/tasks")
+    fetch("https://to-do-server.onrender.com//tasks")
       .then((res) => res.json())
       .then((data) => setTasks(data));
-  },);
+  });
   const handleDelete = (id) => {
     const proceed = window.confirm("R you sure?");
     if (proceed) {
-      fetch(`https://herokutodolistdaddy.herokuapp.com/tasks/${id}`, {
+      fetch(`https://to-do-server.onrender.com//tasks/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -34,7 +34,7 @@ const List = () => {
   };
   const handleUpdateproduct = (id) => {
     const updateproduct = { status: "completed" };
-    fetch(`https://herokutodolistdaddy.herokuapp.com/tasksstat/${id}`, {
+    fetch(`https://to-do-server.onrender.com//tasksstat/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -62,46 +62,47 @@ const List = () => {
           </tr>
         </thead>
         <tbody>
-          {
-            tasks.length>0?
-(     tasks.map((task, index) => (
-            <tr class="hover">
-              <th>{index + 1}</th>
-              <td>{task.task}</td>
-              <td>{task.starting}</td>
-              <td>{task.ending}</td>
-              <td>{task.status}</td>
-              <td>
-                <div class="btn-group">
-                  {task.status !== "completed" && user && (
-                    <button
-                      class="btn btn-active"
-                      onClick={() => handleUpdateproduct(task._id)}
-                    >
-                      Completed
-                    </button>
-                  )}
-                  {user && (
-                    <>
+          {tasks.length > 0 ? (
+            tasks.map((task, index) => (
+              <tr class="hover">
+                <th>{index + 1}</th>
+                <td>{task.task}</td>
+                <td>{task.starting}</td>
+                <td>{task.ending}</td>
+                <td>{task.status}</td>
+                <td>
+                  <div class="btn-group">
+                    {task.status !== "completed" && user && (
                       <button
-                        class="btn"
-                        onClick={() => navigateToUpdate(task._id)}
+                        class="btn btn-active"
+                        onClick={() => handleUpdateproduct(task._id)}
                       >
-                        Update
+                        Completed
                       </button>
-                      <button
-                        class="btn"
-                        onClick={() => handleDelete(task._id)}
-                      >
-                        Delete
-                      </button>
-                    </>
-                  )}
-                </div>
-              </td>
-            </tr>
-          ))):(<h1 className="text-2xl font-bold text-center">no task to show</h1>)
-          }
+                    )}
+                    {user && (
+                      <>
+                        <button
+                          class="btn"
+                          onClick={() => navigateToUpdate(task._id)}
+                        >
+                          Update
+                        </button>
+                        <button
+                          class="btn"
+                          onClick={() => handleDelete(task._id)}
+                        >
+                          Delete
+                        </button>
+                      </>
+                    )}
+                  </div>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <h1 className="text-2xl font-bold text-center">no task to show</h1>
+          )}
         </tbody>
       </table>
       <ToastContainer />
